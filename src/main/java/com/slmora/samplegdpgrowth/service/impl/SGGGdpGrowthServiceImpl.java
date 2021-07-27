@@ -46,7 +46,7 @@ public class SGGGdpGrowthServiceImpl implements ISGGGdpGrowthService
     }
 
     @Override
-//    @Cacheable(value = "gdpGrowthVos", key = "#countryAlpha3")
+    @Cacheable(value = "gdpGrowthVos", key = "#countryAlpha3")
     public List<GdpGrowthVo> getGdpGrowthListByCountryAlpha3(String countryAlpha3)
     {
         return StreamSupport.stream(growthRepository.findByGdpGrowthCountryAlpha3(countryAlpha3).spliterator(),false)

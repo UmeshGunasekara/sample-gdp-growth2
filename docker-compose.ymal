@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  redis:
+    image: redis
+    hostname: redis
+    ports:
+      - "6379:6379"
+#  application:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#      image: sample-gdp-growth
+#      ports:
+#        - 8080:8080
+#      depends_on:
+#        - redis
