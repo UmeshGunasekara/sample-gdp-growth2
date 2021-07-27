@@ -40,6 +40,11 @@ public class SGGCountryServiceImpl implements ISGGCountryService
         this.countryRepository = countryRepository;
     }
 
+    /**
+     *
+     * @param countryAlpha3 value of country alpha code 3
+     * @return country name related to given country alpha code 3
+     */
     @Override
     public Optional<String> getCountryNameByCountryAlpha3(String countryAlpha3)
     {
@@ -51,6 +56,11 @@ public class SGGCountryServiceImpl implements ISGGCountryService
         }
     }
 
+    /**
+     *
+     * @param countryAlpha2 value of country alpha code 2
+     * @return country name related to given country alpha code 2
+     */
     @Override
     public Optional<String> getCountryNameByCountryAlpha2(String countryAlpha2)
     {
@@ -62,6 +72,13 @@ public class SGGCountryServiceImpl implements ISGGCountryService
         }
     }
 
+    /**
+     *
+     * @param countryAlpha2 value of country alpha code 2
+     * @return country alpha code 3 related to given country alpha code 2
+     *
+     * This will help to add support alpha code 2 compatibility of the GdpGrowthResource
+     */
     @Override
     public Optional<String> getCountryAlpha3ByCountryAlpha2(String countryAlpha2)
     {
