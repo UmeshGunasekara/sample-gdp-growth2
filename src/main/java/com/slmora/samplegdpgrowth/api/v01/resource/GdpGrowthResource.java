@@ -48,6 +48,11 @@ public class GdpGrowthResource
     @Autowired
     private ISGGCountryService countryService;
 
+    /**
+     *
+     * @param country country value can be alpha code 3 value or alpha code 2 value
+     * @return contain structure of GdpGrowthResponse with List of GDP Growth Rates and the country Name
+     */
     @GetMapping("/{country}")
     public ResponseEntity<?> redirectTo(@PathVariable String country){
         List<GdpGrowthVo> listGdpGrowthVo = new ArrayList<>();
