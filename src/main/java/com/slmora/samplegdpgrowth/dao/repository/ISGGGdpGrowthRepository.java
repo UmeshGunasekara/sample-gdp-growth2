@@ -5,6 +5,9 @@
  */
 package com.slmora.samplegdpgrowth.dao.repository;
 
+import com.slmora.samplegdpgrowth.entity.SGGGdpGrowth;
+import org.springframework.data.repository.CrudRepository;
+
 /**
  * This Interface created for
  *
@@ -15,6 +18,6 @@ package com.slmora.samplegdpgrowth.dao.repository;
  * ----------------------------------------------------------------------------------------------------------------
  * 1.0          7/27/2021      SLMORA                Initial Code
  */
-public interface ISGGGdpGrowthRepository
+public interface ISGGGdpGrowthRepository extends CrudRepository<SGGGdpGrowth, Integer>
 {
 }

@@ -61,8 +61,8 @@ public class SGGCountry implements Serializable
     @Column(name = "country_numeric")
     private String countryNumeric;
 
-    @OneToMany(mappedBy = "country")
-    private Set<SGGGdpGrowth> gdpGrowths;
+//    @OneToMany(mappedBy = "country")
+//    private Set<SGGGdpGrowth> gdpGrowths;
 
     @Override
     public boolean equals(Object o)

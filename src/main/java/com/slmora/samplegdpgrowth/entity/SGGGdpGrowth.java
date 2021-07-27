@@ -56,9 +56,13 @@ public class SGGGdpGrowth implements Serializable
     private String gdpGrowthValue;
 
     @Basic(optional = false)
-    @Column(name = "gdp_growth_country")
-    @JoinColumn(name="country_id", nullable=false)
-    private SGGCountry country;
+    @Column(name = "gdp_growth_country_alpha_3", length = 3)
+    private String gdpGrowthCountryAlpha3;
+
+//    @Basic(optional = false)
+//    @Column(name = "gdp_growth_country")
+//    @JoinColumn(name="country_id", nullable=false)
+//    private SGGCountry country;
 
     @Override
     public boolean equals(Object o)
