@@ -13,6 +13,8 @@ import lombok.ToString;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
@@ -45,6 +47,7 @@ public class SGGGdpGrowth implements Serializable
     @Id
     @Basic(optional = false)
     @Column(name = "gdp_growth_id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer gdpGrowthId;
 
     @Basic(optional = false)
@@ -53,7 +56,7 @@ public class SGGGdpGrowth implements Serializable
 
     @Basic(optional = false)
     @Column(name = "gdp_growth_value")
-    private String gdpGrowthValue;
+    private Float gdpGrowthValue;
 
     @Basic(optional = false)
     @Column(name = "gdp_growth_country_alpha_3", length = 3)
