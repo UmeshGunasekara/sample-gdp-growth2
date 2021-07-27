@@ -6,6 +6,7 @@
 package com.slmora.samplegdpgrowth.service.impl;
 
 import com.slmora.samplegdpgrowth.dao.repository.ISGGCountryRepository;
+import com.slmora.samplegdpgrowth.entity.SGGCountry;
 import com.slmora.samplegdpgrowth.service.ISGGCountryService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,11 @@ public class SGGCountryServiceImpl implements ISGGCountryService
     @Override
     public Optional<String> getCountryNameByCountryAlpha3(String countryAlpha3)
     {
-        return Optional.empty();
+        Optional<SGGCountry> opCountry = countryRepository.findByCountryAlpha2OrCountryAlpha3(countryAlpha3);
+        if(opCountry.isPresent()){
+            return Optional.of(opCountry.get().getCountryName());
+        }else{
+            return Optional.empty();
+        }
     }
 }

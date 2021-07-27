@@ -8,6 +8,8 @@ package com.slmora.samplegdpgrowth.dao.repository;
 import com.slmora.samplegdpgrowth.entity.SGGCountry;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Optional;
+
 /**
  * This Interface created for
  *
@@ -20,4 +22,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface ISGGCountryRepository extends CrudRepository<SGGCountry, Integer>
 {
+    Optional<SGGCountry> findByCountryAlpha2OrCountryAlpha3(String countryAlpha3);
 }

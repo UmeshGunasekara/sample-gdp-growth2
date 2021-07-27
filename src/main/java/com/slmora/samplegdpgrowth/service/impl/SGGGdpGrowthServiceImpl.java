@@ -16,6 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * This Class created for
@@ -45,6 +47,8 @@ public class SGGGdpGrowthServiceImpl implements ISGGGdpGrowthService
     @Override
     public List<GdpGrowthVo> getGdpGrowthListByCountryAlpha3(String countryAlpha3)
     {
-        return new ArrayList<>();
+        return StreamSupport.stream(growthRepository.findByGdpGrowthCountryAlpha3(countryAlpha3).spliterator(),false)
+                .map(gdpGrowth -> modelMapper.map(gdpGrowth, GdpGrowthVo.class))
+                .collect(Collectors.toList());
     }
 }
