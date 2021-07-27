@@ -22,5 +22,6 @@ import java.util.Optional;
  */
 public interface ISGGCountryRepository extends CrudRepository<SGGCountry, Integer>
 {
-    Optional<SGGCountry> findByCountryAlpha2OrCountryAlpha3(String countryAlpha3);
+    Optional<SGGCountry> findByCountryAlpha3(String countryAlpha3);
+    Optional<SGGCountry> findByCountryAlpha2(String countryAlpha2);
 }

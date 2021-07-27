@@ -43,7 +43,7 @@ public class SGGCountryServiceImpl implements ISGGCountryService
     @Override
     public Optional<String> getCountryNameByCountryAlpha3(String countryAlpha3)
     {
-        Optional<SGGCountry> opCountry = countryRepository.findByCountryAlpha2OrCountryAlpha3(countryAlpha3);
+        Optional<SGGCountry> opCountry = countryRepository.findByCountryAlpha3(countryAlpha3);
         if(opCountry.isPresent()){
             return Optional.of(opCountry.get().getCountryName());
         }else{
