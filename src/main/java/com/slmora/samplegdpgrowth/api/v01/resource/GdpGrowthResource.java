@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,8 +50,18 @@ public class GdpGrowthResource
 
     @GetMapping("/{country}")
     public ResponseEntity<?> redirectTo(@PathVariable String country){
-        List<GdpGrowthVo> listGdpGrowthVo = gdpGrowthService.getGdpGrowthListByCountryAlpha3(country);
-        Optional<String> countryName = countryService.getCountryNameByCountryAlpha3(country);
+        List<GdpGrowthVo> listGdpGrowthVo = new ArrayList<>();
+        Optional<String> countryName = Optional.empty();
+        if(country.length()==3){
+            listGdpGrowthVo = gdpGrowthService.getGdpGrowthListByCountryAlpha3(country);
+            countryName = countryService.getCountryNameByCountryAlpha3(country);
+        }else if (country.length()==2){
+            countryName = countryService.getCountryNameByCountryAlpha2(country);
+            if(countryName.isPresent()){
+                listGdpGrowthVo = gdpGrowthService.getGdpGrowthListByCountryAlpha3(countryService.getCountryAlpha3ByCountryAlpha2(country).get());
+            }
+        }
+
         if((!listGdpGrowthVo.isEmpty())
                 && countryName.isPresent()
         ){

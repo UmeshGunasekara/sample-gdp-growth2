@@ -50,4 +50,26 @@ public class SGGCountryServiceImpl implements ISGGCountryService
             return Optional.empty();
         }
     }
+
+    @Override
+    public Optional<String> getCountryNameByCountryAlpha2(String countryAlpha2)
+    {
+        Optional<SGGCountry> opCountry = countryRepository.findByCountryAlpha2(countryAlpha2);
+        if(opCountry.isPresent()){
+            return Optional.of(opCountry.get().getCountryName());
+        }else{
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public Optional<String> getCountryAlpha3ByCountryAlpha2(String countryAlpha2)
+    {
+        Optional<SGGCountry> opCountry = countryRepository.findByCountryAlpha2(countryAlpha2);
+        if(opCountry.isPresent()){
+            return Optional.of(opCountry.get().getCountryAlpha3());
+        }else{
+            return Optional.empty();
+        }
+    }
 }

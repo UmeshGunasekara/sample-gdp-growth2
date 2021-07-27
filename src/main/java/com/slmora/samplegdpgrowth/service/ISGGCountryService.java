@@ -20,4 +20,6 @@ import java.util.Optional;
 public interface ISGGCountryService
 {
     public Optional<String> getCountryNameByCountryAlpha3(String countryAlpha3);
+    public Optional<String> getCountryNameByCountryAlpha2(String countryAlpha2);
+    public Optional<String> getCountryAlpha3ByCountryAlpha2(String countryAlpha2);
 }
