@@ -21,3 +21,5 @@ ex- growth by alpha_3
 ```
 curl --location --request GET 'http://localhost:8080/api/v01/gdpgrowth/LKA'
 ```
+Swagger Out
+![alt text](https://raw.githubusercontent.com/UmeshGunasekara/sample-gdp-growth2/main/Swagger_out.jpeg)
