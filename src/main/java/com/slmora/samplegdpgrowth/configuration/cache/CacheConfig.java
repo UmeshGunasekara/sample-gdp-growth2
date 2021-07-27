@@ -27,6 +27,7 @@ import java.time.Duration;
 @Configuration
 public class CacheConfig
 {
+    /*
     @Bean
     public RedisCacheManagerBuilderCustomizer redisCacheManagerBuilderCustomizer() {
         return (builder) -> builder
@@ -41,4 +42,5 @@ public class CacheConfig
                 .disableCachingNullValues()
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
     }
+    */
 }

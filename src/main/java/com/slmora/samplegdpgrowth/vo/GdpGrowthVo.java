@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * This Class created for
  *
@@ -24,8 +26,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class GdpGrowthVo
+public class GdpGrowthVo implements Serializable
 {
+    private static final long serialVersionUID = -4514003373860987443L;
+
     private Integer gdpGrowthYear;
     private Float gdpGrowthValue;
 
