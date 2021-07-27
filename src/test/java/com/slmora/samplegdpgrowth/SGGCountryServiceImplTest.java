@@ -55,7 +55,7 @@ public class SGGCountryServiceImplTest
     @Test
     public void getCountryNameByCountryAlpha2SuccessValidCountry() {
         when(countryRepository.findByCountryAlpha2(anyString())).thenReturn(returnSGGCountry());
-        Optional<String> countryName = countryService.getCountryNameByCountryAlpha3("LK");
+        Optional<String> countryName = countryService.getCountryNameByCountryAlpha2("LK");
 
         Assertions.assertTrue(countryName.isPresent());
         Assertions.assertEquals("Sri Lanka", countryName.get());
