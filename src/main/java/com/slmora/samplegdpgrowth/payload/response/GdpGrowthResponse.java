@@ -1,27 +1,34 @@
 /*
  * Created by IntelliJ IDEA.
  * @Author: SLMORA
- * @DateTime: 7/27/2021 8:33 AM
+ * @DateTime: 7/27/2021 10:10 AM
  */
-package com.slmora.samplegdpgrowth.service;
+package com.slmora.samplegdpgrowth.payload.response;
 
 import com.slmora.samplegdpgrowth.vo.GdpGrowthVo;
-import org.apache.catalina.LifecycleState;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * This Class created for
  *
  * @Author: SLMORA
- * @DateTime: 7/27/2021 8:33 AM
+ * @DateTime: 7/27/2021 10:10 AM
  * <p>
  * Version      Date            Editor              Note
  * ----------------------------------------------------------------------------------------------------------------
  * 1.0          7/27/2021      SLMORA                Initial Code
  */
-public interface ISGGGdpGrowthService
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public class GdpGrowthResponse
 {
-    public List<GdpGrowthVo> getGdpGrowthListByCountryAlpha3(String countryAlpha3);
+    private String country;
+    private List<GdpGrowthVo> gdpgrowth;
 }

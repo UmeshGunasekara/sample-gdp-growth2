@@ -5,12 +5,25 @@
  */
 package com.slmora.samplegdpgrowth.api.v01.resource;
 
+import com.slmora.samplegdpgrowth.dao.repository.ISGGCountryRepository;
+import com.slmora.samplegdpgrowth.payload.response.GdpGrowthResponse;
+import com.slmora.samplegdpgrowth.payload.response.MessageResponse;
+import com.slmora.samplegdpgrowth.service.ISGGCountryService;
 import com.slmora.samplegdpgrowth.service.ISGGGdpGrowthService;
+import com.slmora.samplegdpgrowth.vo.GdpGrowthVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.net.URI;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * This Class created for
@@ -30,5 +43,25 @@ public class GdpGrowthResource
 
     @Autowired
     private ISGGGdpGrowthService gdpGrowthService;
+
+    @Autowired
+    private ISGGCountryService countryService;
+
+    @GetMapping("/{country}")
+    public ResponseEntity<?> redirectTo(@PathVariable String country){
+        List<GdpGrowthVo> listGdpGrowthVo = gdpGrowthService.getGdpGrowthListByCountryAlpha3(country);
+        Optional<String> countryName = countryService.getCountryNameByCountryAlpha3(country);
+        if((!listGdpGrowthVo.isEmpty())
+                && countryName.isPresent()
+        ){
+            return ResponseEntity.ok(
+                    new GdpGrowthResponse(countryName.get(),
+                            listGdpGrowthVo));
+        }else{
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Error Happened, URL not found"));
+        }
+    }
 
 }

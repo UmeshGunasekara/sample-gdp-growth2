@@ -5,6 +5,8 @@
  */
 package com.slmora.samplegdpgrowth.service;
 
+import java.util.Optional;
+
 /**
  * This Interface created for
  *
@@ -17,4 +19,5 @@ package com.slmora.samplegdpgrowth.service;
  */
 public interface ISGGCountryService
 {
+    public Optional<String> getCountryNameByCountryAlpha3(String countryAlpha3);
 }

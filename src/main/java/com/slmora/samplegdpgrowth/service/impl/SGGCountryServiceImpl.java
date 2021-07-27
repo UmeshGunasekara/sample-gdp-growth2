@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 /**
  * This Class created for
  *
@@ -35,5 +37,11 @@ public class SGGCountryServiceImpl implements ISGGCountryService
     {
         this.modelMapper = modelMapper;
         this.countryRepository = countryRepository;
+    }
+
+    @Override
+    public Optional<String> getCountryNameByCountryAlpha3(String countryAlpha3)
+    {
+        return Optional.empty();
     }
 }

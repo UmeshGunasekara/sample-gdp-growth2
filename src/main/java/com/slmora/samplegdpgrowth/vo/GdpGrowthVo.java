@@ -1,23 +1,20 @@
 /*
  * Created by IntelliJ IDEA.
  * @Author: SLMORA
- * @DateTime: 7/27/2021 9:23 AM
+ * @DateTime: 7/27/2021 10:13 AM
  */
-package com.slmora.samplegdpgrowth.payload.response;
+package com.slmora.samplegdpgrowth.vo;
 
-import com.slmora.samplegdpgrowth.vo.GdpGrowthVo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
-
 /**
  * This Class created for
  *
  * @Author: SLMORA
- * @DateTime: 7/27/2021 9:23 AM
+ * @DateTime: 7/27/2021 10:13 AM
  * <p>
  * Version      Date            Editor              Note
  * ----------------------------------------------------------------------------------------------------------------
@@ -27,7 +24,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class MessageResponse
+public class GdpGrowthVo
 {
-    private String message;
+    private Integer gdpGrowthYear;
+    private Float gdpGrowthValue;
+
 }
