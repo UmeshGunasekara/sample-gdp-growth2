@@ -10,6 +10,7 @@ import com.slmora.samplegdpgrowth.service.ISGGGdpGrowthService;
 import com.slmora.samplegdpgrowth.vo.GdpGrowthVo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,6 +46,7 @@ public class SGGGdpGrowthServiceImpl implements ISGGGdpGrowthService
     }
 
     @Override
+    @Cacheable(value = "gdpGrowthVos", key = "#countryAlpha3")
     public List<GdpGrowthVo> getGdpGrowthListByCountryAlpha3(String countryAlpha3)
     {
         return StreamSupport.stream(growthRepository.findByGdpGrowthCountryAlpha3(countryAlpha3).spliterator(),false)
